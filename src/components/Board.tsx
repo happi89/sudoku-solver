@@ -1,6 +1,25 @@
-import { Box, Button, Center, Flex, Group, NumberInput } from '@mantine/core';
+import {
+	Box,
+	Button,
+	Center,
+	createStyles,
+	Flex,
+	Group,
+	NumberInput,
+} from '@mantine/core';
 import { useState } from 'react';
 import { initiate } from '../functions/functions';
+
+const useStyles = createStyles((theme) => ({
+	borderRow: {
+		borderRight:
+			theme.colorScheme === 'light' ? '2px solid black' : '2px solid white',
+	},
+	borderCell: {
+		borderTop:
+			theme.colorScheme === 'light' ? '2px solid black' : '2px solid white',
+	},
+}));
 
 const Board = () => {
 	const [board, setBoard] = useState<number[][]>([
@@ -15,7 +34,7 @@ const Board = () => {
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 	]);
 
-	console.log(board);
+	const { classes } = useStyles();
 
 	const solveBoard = (board: number[][]) => {
 		const solvedBoard = initiate(board);
@@ -35,9 +54,20 @@ const Board = () => {
 				<Group spacing={0}>
 					{board.map((row, rowIndex) => {
 						return (
-							<Box key={rowIndex}>
+							<Box
+								key={rowIndex}
+								className={
+									(rowIndex + 1) % 3 === 0 && rowIndex !== 8
+										? classes.borderRow
+										: ''
+								}>
 								{row.map((cell, colIndex) => (
 									<NumberInput
+										className={
+											colIndex % 3 === 0 && colIndex !== 0
+												? classes.borderCell
+												: ''
+										}
 										value={cell}
 										key={colIndex}
 										min={1}
