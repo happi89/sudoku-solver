@@ -1,5 +1,5 @@
 import NumInput from './NumInput';
-import { Box, Button, Divider, Group, NumberInput } from '@mantine/core';
+import { Box, Button, Divider, Flex, Group, NumberInput } from '@mantine/core';
 import { useState } from 'react';
 import { initiate } from '../functions/functions';
 
@@ -17,7 +17,8 @@ const Board = () => {
 	]);
 
 	const solveBoard = (board: number[][]) => {
-		console.log(initiate(board));
+		const solvedBoard = initiate(board);
+		console.log(solvedBoard);
 	};
 
 	const updateBoard = (rowIndex: number, colIndex: number, value: number) => {
@@ -28,30 +29,34 @@ const Board = () => {
 	};
 
 	return (
-		<Group spacing={0}>
-			{board.map((row, rowIndex) => {
-				return (
-					<Box key={rowIndex}>
-						{row.map((cell, colIndex) => (
-							<NumberInput
-								defaultValue={cell}
-								key={colIndex}
-								min={1}
-								max={9}
-								hideControls
-								// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-								onChange={(val) => updateBoard(rowIndex, colIndex, val!)}
-								styles={{
-									input: {
-										width: 40,
-									},
-								}}></NumberInput>
-						))}
-					</Box>
-				);
-			})}
-			<Button onClick={() => solveBoard(board)}>Solve</Button>
-		</Group>
+		<>
+			<Group spacing={0}>
+				{board.map((row, rowIndex) => {
+					return (
+						<Box key={rowIndex}>
+							{row.map((cell, colIndex) => (
+								<NumberInput
+									defaultValue={cell}
+									key={colIndex}
+									min={1}
+									max={9}
+									hideControls
+									// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+									onChange={(val) => updateBoard(rowIndex, colIndex, val!)}
+									styles={{
+										input: {
+											width: 40,
+										},
+									}}></NumberInput>
+							))}
+						</Box>
+					);
+				})}
+			</Group>
+			<Button mt='lg' onClick={() => solveBoard(board)}>
+				Solve
+			</Button>
+		</>
 	);
 };
 

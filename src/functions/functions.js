@@ -52,6 +52,12 @@ export const initiate = (board) => {
 	const updatedBoard = board.map((i) =>
 		i.map((j) => (j === 0 ? (j = null) : j))
 	);
+
+	const validInput = validBoard(updatedBoard);
+	if (!validInput) {
+		return false;
+	}
+
 	return solve(updatedBoard);
 };
 
@@ -79,9 +85,9 @@ const searchForSolution = (boards) => {
 };
 
 const isSolved = (board) => {
-	for (var i = 0; i < 9; i++) {
-		for (var j = 0; j < 9; j++) {
-			if (board[i][j] == null) {
+	for (let i = 0; i < 9; i++) {
+		for (let j = 0; j < 9; j++) {
+			if (board[i][j] === null) {
 				return false;
 			}
 		}
@@ -110,7 +116,7 @@ const findPossibilities = (board) => {
 const findEmptySqr = (board) => {
 	for (let i = 0; i < 9; i++) {
 		for (let j = 0; j < 9; j++) {
-			if (board[i][j] == null) {
+			if (board[i][j] === null) {
 				return [i, j];
 			}
 		}
@@ -137,7 +143,7 @@ function rowsValid(board) {
 		for (let j = 0; j < 9; j++) {
 			if (cur.includes(board[i][j])) {
 				return false;
-			} else if (board[i][j] != null) {
+			} else if (board[i][j] !== null) {
 				cur.push(board[i][j]);
 			}
 		}
@@ -151,7 +157,7 @@ function columnsValid(board) {
 		for (let j = 0; j < 9; j++) {
 			if (cur.includes(board[j][i])) {
 				return false;
-			} else if (board[j][i] != null) {
+			} else if (board[j][i] !== null) {
 				cur.push(board[j][i]);
 			}
 		}
@@ -181,7 +187,7 @@ function boxesValid(board) {
 				coordinates[1] += x;
 				if (cur.includes(board[coordinates[0]][coordinates[1]])) {
 					return false;
-				} else if (board[coordinates[0]][coordinates[1]] != null) {
+				} else if (board[coordinates[0]][coordinates[1]] !== null) {
 					cur.push(board[coordinates[0]][coordinates[1]]);
 				}
 			}
