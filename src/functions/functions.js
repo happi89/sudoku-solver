@@ -1,56 +1,6 @@
-// const b = null;
-
-// const bd1 = [
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-// ];
-
-// const bd2 = [
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// 	[b, b, b, b, b, b, b, b, b],
-// ];
-
-// const bd3 = [
-// 	[b, b, b, b, b, 8, 9, 1, b],
-// 	[b, b, 1, b, b, b, b, b, 3],
-// 	[9, b, b, b, 2, 7, b, b, 5],
-// 	[3, b, 2, 5, 6, b, b, b, b],
-// 	[5, b, b, b, b, b, b, b, 8],
-// 	[b, b, b, b, 8, 3, 5, b, 4],
-// 	[8, b, b, 7, 4, b, b, b, 2],
-// 	[6, b, b, b, b, b, 1, b, b],
-// 	[b, 5, 7, 3, b, b, b, b, b],
-// ];
-
-// const bd4 = [
-// 	[1, 2, 3, 4, 5, 6, 7, 8, b],
-// 	[b, b, b, b, b, b, b, b, 2],
-// 	[b, b, b, b, b, b, b, b, 3],
-// 	[b, b, b, b, b, b, b, b, 4],
-// 	[b, b, b, b, b, b, b, b, 5],
-// 	[b, b, b, b, b, b, b, b, 6],
-// 	[b, b, b, b, b, b, b, b, 7],
-// 	[b, b, b, b, b, b, b, b, 8],
-// 	[b, b, b, b, b, b, b, b, 9],
-// ];
-
-export const initiate = (board) => {
-	const updatedBoard = board.map((i) =>
-		i.map((j) => (j === 0 ? (j = null) : j))
+export const modifyBoard = (board) => {
+	const updatedBoard = board.map((row) =>
+		row.map((cell) => (cell === 0 ? (cell = null) : cell))
 	);
 
 	const validInput = validBoard(updatedBoard);
@@ -58,16 +8,16 @@ export const initiate = (board) => {
 		return false;
 	}
 
-	return solve(updatedBoard);
+	return solveBoard(updatedBoard);
 };
 
-const solve = (board) => {
+const solveBoard = (board) => {
 	if (isSolved(board)) {
 		return board;
 	}
 
-	const possibilities = findPossibilities(board);
-	const validBoards = keepValid(possibilities);
+	const possibleBoards = findPossibilities(board);
+	const validBoards = keepValid(possibleBoards);
 	return searchForSolution(validBoards);
 };
 
@@ -77,7 +27,7 @@ const searchForSolution = (boards) => {
 	}
 
 	const first = boards.shift();
-	const tryPath = solve(first);
+	const tryPath = solveBoard(first);
 	if (tryPath) {
 		return tryPath;
 	}
@@ -85,9 +35,9 @@ const searchForSolution = (boards) => {
 };
 
 const isSolved = (board) => {
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			if (board[i][j] === null) {
+	for (let row = 0; row < 9; row++) {
+		for (let cell = 0; cell < 9; cell++) {
+			if (board[row][cell] === null) {
 				return false;
 			}
 		}
@@ -96,41 +46,41 @@ const isSolved = (board) => {
 };
 
 const findPossibilities = (board) => {
-	let res = [];
+	let result = [];
 	const firstEmptySqr = findEmptySqr(board);
 	if (firstEmptySqr !== undefined) {
 		const y = firstEmptySqr[0];
 		const x = firstEmptySqr[1];
-		for (let i = 1;i <= 9; i++) {
+		for (let i = 1; i <= 9; i++) {
 			const newBoard = [...board];
 			const row = [...newBoard[y]];
 			row[x] = i;
 			newBoard[y] = row;
-			res.push(newBoard);
+			result.push(newBoard);
 		}
 	}
 
-	return res;
+	return result;
 };
 
 const findEmptySqr = (board) => {
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			if (board[i][j] === null) {
-				return [i, j];
+	for (let row = 0; row < 9; row++) {
+		for (let cell = 0; cell < 9; cell++) {
+			if (board[row][cell] === null) {
+				return [row, cell];
 			}
 		}
 	}
 };
 
 const keepValid = (boards) => {
-	let res = [];
-	for (let i = 0; i < boards.length; i++) {
-		if (validBoard(boards[i])) {
-			res.push(boards[i]);
+	let result = [];
+	for (let board = 0; board < boards.length; board++) {
+		if (validBoard(boards[board])) {
+			result.push(boards[board]);
 		}
 	}
-	return res;
+	return result;
 };
 
 const validBoard = (board) => {
@@ -138,13 +88,13 @@ const validBoard = (board) => {
 };
 
 function rowsValid(board) {
-	for (let i = 0; i < 9; i++) {
-		let cur = [];
-		for (let j = 0; j < 9; j++) {
-			if (cur.includes(board[i][j])) {
+	for (let row = 0; row < 9; row++) {
+		let current = [];
+		for (let n = 0; n < 9; n++) {
+			if (current.includes(board[row][n])) {
 				return false;
-			} else if (board[i][j] !== null) {
-				cur.push(board[i][j]);
+			} else if (board[row][n] !== null) {
+				current.push(board[row][n]);
 			}
 		}
 	}
@@ -152,13 +102,13 @@ function rowsValid(board) {
 }
 
 function columnsValid(board) {
-	for (let i = 0; i < 9; i++) {
+	for (let col = 0; col < 9; col++) {
 		let cur = [];
-		for (let j = 0; j < 9; j++) {
-			if (cur.includes(board[j][i])) {
+		for (let n = 0; n < 9; n++) {
+			if (cur.includes(board[n][col])) {
 				return false;
-			} else if (board[j][i] !== null) {
-				cur.push(board[j][i]);
+			} else if (board[n][col] !== null) {
+				cur.push(board[n][col]);
 			}
 		}
 	}

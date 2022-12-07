@@ -8,7 +8,7 @@ import {
 	NumberInput,
 } from '@mantine/core';
 import { useState } from 'react';
-import { initiate } from '../functions/functions';
+import { modifyBoard } from '../functions/functions';
 
 const useStyles = createStyles((theme) => ({
 	borderRow: {
@@ -37,7 +37,7 @@ const Board = () => {
 	const { classes } = useStyles();
 
 	const solveBoard = (board: number[][]) => {
-		const solvedBoard = initiate(board);
+		const solvedBoard = modifyBoard(board);
 		setBoard(solvedBoard);
 	};
 
