@@ -5,7 +5,7 @@ const Navbar = () => {
 		<Header height={56} mb={100}>
 			<Flex justify='center' align='center' pt='sm' gap='xl'>
 				<Text size='xl' weight='bold' color='blue'>
-					Sodoku Solver
+					Sudoku Solver
 				</Text>
 				<ToggleTheme />
 			</Flex>

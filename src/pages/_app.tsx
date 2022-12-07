@@ -30,7 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 				<MantineProvider
 					withGlobalStyles
 					withNormalizeCSS
-					theme={{ colorScheme }}>
+					theme={{ colorScheme, fontFamily: 'Courier New, sans-serif' }}>
 					<NotificationsProvider>
 						<Component {...pageProps} />
 					</NotificationsProvider>
