@@ -1,5 +1,12 @@
-import NumInput from './NumInput';
-import { Box, Button, Divider, Flex, Group, NumberInput } from '@mantine/core';
+import {
+	Box,
+	Button,
+	Divider,
+	Flex,
+	Group,
+	NumberInput,
+	Text,
+} from '@mantine/core';
 import { useState } from 'react';
 import { initiate } from '../functions/functions';
 
@@ -16,9 +23,11 @@ const Board = () => {
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 	]);
 
+	console.log(board);
+
 	const solveBoard = (board: number[][]) => {
 		const solvedBoard = initiate(board);
-		console.log(solvedBoard);
+		setBoard(solvedBoard);
 	};
 
 	const updateBoard = (rowIndex: number, colIndex: number, value: number) => {
@@ -36,7 +45,7 @@ const Board = () => {
 						<Box key={rowIndex}>
 							{row.map((cell, colIndex) => (
 								<NumberInput
-									defaultValue={cell}
+									value={cell}
 									key={colIndex}
 									min={1}
 									max={9}
@@ -53,6 +62,24 @@ const Board = () => {
 					);
 				})}
 			</Group>
+			<Button
+				mt='lg'
+				mr='xl'
+				onClick={() =>
+					setBoard([
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+						[0, 0, 0, 0, 0, 0, 0, 0, 0],
+					])
+				}>
+				Clear
+			</Button>
 			<Button mt='lg' onClick={() => solveBoard(board)}>
 				Solve
 			</Button>
