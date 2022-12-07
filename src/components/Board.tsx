@@ -31,8 +31,7 @@ const Board = () => {
 	const solveBoard = (board: number[][]) => {
 		const solvedBoard = modifyBoard(board);
 		if (solvedBoard === false) {
-			console.log('errror');
-			showNotification({
+			return showNotification({
 				message: 'Error Input Not Valid',
 				color: 'red',
 				icon: <IconX size={18} />,
