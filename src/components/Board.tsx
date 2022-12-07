@@ -24,17 +24,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const Board = () => {
-	const [board, setBoard] = useState<number[][]>([
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	]);
+	const [board, setBoard] = useState<number[][]>(defaultBoard);
 
 	const { classes } = useStyles();
 
@@ -63,13 +53,6 @@ const Board = () => {
 	return (
 		<Center>
 			<Flex direction='column'>
-				{/* <Notification
-					icon={<IconX size={18} />}
-					color='red'
-					onClose={() => setError(false)}>
-					Error: Input Not Valid
-				</Notification> */}
-
 				<Group spacing={0}>
 					{board.map((row, rowIndex) => {
 						return (
@@ -105,23 +88,9 @@ const Board = () => {
 						);
 					})}
 				</Group>
+
 				<Flex>
-					<Button
-						mt='lg'
-						mr='xl'
-						onClick={() =>
-							setBoard([
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-								[0, 0, 0, 0, 0, 0, 0, 0, 0],
-							])
-						}>
+					<Button mt='lg' mr='xl' onClick={() => setBoard(defaultBoard)}>
 						Clear
 					</Button>
 					<Button mt='lg' onClick={() => solveBoard(board)}>
@@ -134,3 +103,15 @@ const Board = () => {
 };
 
 export default Board;
+
+const defaultBoard = [
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0],
+];

@@ -103,12 +103,12 @@ function rowsValid(board) {
 
 function columnsValid(board) {
 	for (let col = 0; col < 9; col++) {
-		let cur = [];
+		let current = [];
 		for (let n = 0; n < 9; n++) {
-			if (cur.includes(board[n][col])) {
+			if (current.includes(board[n][col])) {
 				return false;
 			} else if (board[n][col] !== null) {
-				cur.push(board[n][col]);
+				current.push(board[n][col]);
 			}
 		}
 	}
@@ -130,15 +130,15 @@ function boxesValid(board) {
 
 	for (let y = 0; y < 9; y += 3) {
 		for (let x = 0; x < 9; x += 3) {
-			let cur = [];
+			let current = [];
 			for (let i = 0; i < 9; i++) {
 				let coordinates = [...boxCoordinates[i]];
 				coordinates[0] += y;
 				coordinates[1] += x;
-				if (cur.includes(board[coordinates[0]][coordinates[1]])) {
+				if (current.includes(board[coordinates[0]][coordinates[1]])) {
 					return false;
 				} else if (board[coordinates[0]][coordinates[1]] !== null) {
-					cur.push(board[coordinates[0]][coordinates[1]]);
+					current.push(board[coordinates[0]][coordinates[1]]);
 				}
 			}
 		}
