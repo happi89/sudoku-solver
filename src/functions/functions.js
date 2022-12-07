@@ -1,52 +1,59 @@
-const b = null;
+// const b = null;
 
-const bd1 = [
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-	[1, 2, 3, 4, 5, 6, 7, 8, 9],
-];
+// const bd1 = [
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// 	[1, 2, 3, 4, 5, 6, 7, 8, 9],
+// ];
 
-const bd2 = [
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-	[b, b, b, b, b, b, b, b, b],
-];
+// const bd2 = [
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// 	[b, b, b, b, b, b, b, b, b],
+// ];
 
-const bd3 = [
-	[b, b, b, b, b, 8, 9, 1, b],
-	[b, b, 1, b, b, b, b, b, 3],
-	[9, b, b, b, 2, 7, b, b, 5],
-	[3, b, 2, 5, 6, b, b, b, b],
-	[5, b, b, b, b, b, b, b, 8],
-	[b, b, b, b, 8, 3, 5, b, 4],
-	[8, b, b, 7, 4, b, b, b, 2],
-	[6, b, b, b, b, b, 1, b, b],
-	[b, 5, 7, 3, b, b, b, b, b],
-];
+// const bd3 = [
+// 	[b, b, b, b, b, 8, 9, 1, b],
+// 	[b, b, 1, b, b, b, b, b, 3],
+// 	[9, b, b, b, 2, 7, b, b, 5],
+// 	[3, b, 2, 5, 6, b, b, b, b],
+// 	[5, b, b, b, b, b, b, b, 8],
+// 	[b, b, b, b, 8, 3, 5, b, 4],
+// 	[8, b, b, 7, 4, b, b, b, 2],
+// 	[6, b, b, b, b, b, 1, b, b],
+// 	[b, 5, 7, 3, b, b, b, b, b],
+// ];
 
-const bd4 = [
-	[1, 2, 3, 4, 5, 6, 7, 8, b],
-	[b, b, b, b, b, b, b, b, 2],
-	[b, b, b, b, b, b, b, b, 3],
-	[b, b, b, b, b, b, b, b, 4],
-	[b, b, b, b, b, b, b, b, 5],
-	[b, b, b, b, b, b, b, b, 6],
-	[b, b, b, b, b, b, b, b, 7],
-	[b, b, b, b, b, b, b, b, 8],
-	[b, b, b, b, b, b, b, b, 9],
-];
+// const bd4 = [
+// 	[1, 2, 3, 4, 5, 6, 7, 8, b],
+// 	[b, b, b, b, b, b, b, b, 2],
+// 	[b, b, b, b, b, b, b, b, 3],
+// 	[b, b, b, b, b, b, b, b, 4],
+// 	[b, b, b, b, b, b, b, b, 5],
+// 	[b, b, b, b, b, b, b, b, 6],
+// 	[b, b, b, b, b, b, b, b, 7],
+// 	[b, b, b, b, b, b, b, b, 8],
+// 	[b, b, b, b, b, b, b, b, 9],
+// ];
+
+export const initiate = (board) => {
+	const updatedBoard = board.map((i) =>
+		i.map((j) => (j === 0 ? (j = null) : j))
+	);
+	return solve(updatedBoard);
+};
 
 const solve = (board) => {
 	if (isSolved(board)) {
