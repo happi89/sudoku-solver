@@ -3,6 +3,7 @@ import type { ColorScheme } from '@mantine/core';
 import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import type { AppProps } from 'next/app';
+import { NotificationsProvider } from '@mantine/notifications';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -30,7 +31,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 					withGlobalStyles
 					withNormalizeCSS
 					theme={{ colorScheme }}>
-					<Component {...pageProps} />
+					<NotificationsProvider>
+						<Component {...pageProps} />
+					</NotificationsProvider>
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</>

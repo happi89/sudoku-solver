@@ -7,6 +7,8 @@ import {
 	Group,
 	NumberInput,
 } from '@mantine/core';
+import { showNotification } from '@mantine/notifications';
+import { IconX } from '@tabler/icons';
 import { useState } from 'react';
 import { modifyBoard } from '../functions/functions';
 
@@ -38,7 +40,17 @@ const Board = () => {
 
 	const solveBoard = (board: number[][]) => {
 		const solvedBoard = modifyBoard(board);
-		setBoard(solvedBoard);
+		if (solvedBoard === false) {
+			console.log('errror');
+			showNotification({
+				message: 'Error Input Not Valid',
+				color: 'red',
+				icon: <IconX size={18} />,
+				title: 'Error',
+			});
+		} else {
+			setBoard(solvedBoard);
+		}
 	};
 
 	const updateBoard = (rowIndex: number, colIndex: number, value: number) => {
@@ -51,6 +63,13 @@ const Board = () => {
 	return (
 		<Center>
 			<Flex direction='column'>
+				{/* <Notification
+					icon={<IconX size={18} />}
+					color='red'
+					onClose={() => setError(false)}>
+					Error: Input Not Valid
+				</Notification> */}
+
 				<Group spacing={0}>
 					{board.map((row, rowIndex) => {
 						return (
