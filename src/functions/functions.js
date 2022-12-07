@@ -101,7 +101,7 @@ const findPossibilities = (board) => {
 	if (firstEmptySqr !== undefined) {
 		const y = firstEmptySqr[0];
 		const x = firstEmptySqr[1];
-		for (let i = 0; i <= 9; i++) {
+		for (let i = 1;i <= 9; i++) {
 			const newBoard = [...board];
 			const row = [...newBoard[y]];
 			row[x] = i;
