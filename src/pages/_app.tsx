@@ -1,9 +1,6 @@
 import Head from 'next/head';
-import {
-	MantineProvider,
-	ColorSchemeProvider,
-	ColorScheme,
-} from '@mantine/core';
+import type { ColorScheme } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import type { AppProps } from 'next/app';
 

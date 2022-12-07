@@ -1,14 +1,4 @@
-import {
-	Box,
-	Button,
-	Center,
-	Container,
-	Divider,
-	Flex,
-	Group,
-	NumberInput,
-	Text,
-} from '@mantine/core';
+import { Box, Button, Center, Flex, Group, NumberInput } from '@mantine/core';
 import { useState } from 'react';
 import { initiate } from '../functions/functions';
 
