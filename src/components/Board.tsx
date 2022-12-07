@@ -1,6 +1,8 @@
 import {
 	Box,
 	Button,
+	Center,
+	Container,
 	Divider,
 	Flex,
 	Group,
@@ -38,52 +40,57 @@ const Board = () => {
 	};
 
 	return (
-		<>
-			<Group spacing={0}>
-				{board.map((row, rowIndex) => {
-					return (
-						<Box key={rowIndex}>
-							{row.map((cell, colIndex) => (
-								<NumberInput
-									value={cell}
-									key={colIndex}
-									min={1}
-									max={9}
-									hideControls
-									// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-									onChange={(val) => updateBoard(rowIndex, colIndex, val!)}
-									styles={{
-										input: {
-											width: 40,
-										},
-									}}></NumberInput>
-							))}
-						</Box>
-					);
-				})}
-			</Group>
-			<Button
-				mt='lg'
-				mr='xl'
-				onClick={() =>
-					setBoard([
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-						[0, 0, 0, 0, 0, 0, 0, 0, 0],
-					])
-				}>
-				Clear
-			</Button>
-			<Button mt='lg' onClick={() => solveBoard(board)}>
-				Solve
-			</Button>
-		</>
+		<Center>
+			<Flex direction='column'>
+				<Group spacing={0}>
+					{board.map((row, rowIndex) => {
+						return (
+							<Box key={rowIndex}>
+								{row.map((cell, colIndex) => (
+									<NumberInput
+										value={cell}
+										key={colIndex}
+										min={1}
+										max={9}
+										hideControls
+										error={cell > 9 || cell < 0}
+										// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+										onChange={(val) => updateBoard(rowIndex, colIndex, val!)}
+										styles={{
+											input: {
+												width: 40,
+											},
+										}}></NumberInput>
+								))}
+							</Box>
+						);
+					})}
+				</Group>
+				<Flex>
+					<Button
+						mt='lg'
+						mr='xl'
+						onClick={() =>
+							setBoard([
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+							])
+						}>
+						Clear
+					</Button>
+					<Button mt='lg' onClick={() => solveBoard(board)}>
+						Solve
+					</Button>
+				</Flex>
+			</Flex>
+		</Center>
 	);
 };
 
