@@ -7,9 +7,7 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<Navbar />
-			<Container>
-				<Board />
-			</Container>
+			<Board />
 		</>
 	);
 };
