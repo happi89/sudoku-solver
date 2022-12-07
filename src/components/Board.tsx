@@ -21,7 +21,10 @@ const Board = () => {
 				return (
 					<Box key={i}>
 						{row.map((cell, i) => (
-							<NumInput key={i} />
+							<NumInput
+								key={i}
+								defaultValue={0 < cell && cell < 10 ? cell : 0}
+							/>
 						))}
 					</Box>
 				);

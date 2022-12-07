@@ -1,10 +1,11 @@
 import { NumberInput } from '@mantine/core';
 import { useState } from 'react';
 
-const NumInput = () => {
+const NumInput = ({ defaultValue }: { defaultValue: number }) => {
 	const [val, setVal] = useState<number>();
 	return (
 		<NumberInput
+			defaultValue={defaultValue}
 			min={1}
 			max={9}
 			hideControls
