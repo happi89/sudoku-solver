@@ -1,4 +1,4 @@
-import Row from './../components/Row';
+import Board from '../components/Board';
 import Navbar from './../components/Header';
 import { type NextPage } from 'next';
 import { Box, Container, Divider } from '@mantine/core';
@@ -8,9 +8,7 @@ const Home: NextPage = () => {
 		<>
 			<Navbar />
 			<Container>
-				{[0, 0, 0, 0, 0, 0, 0, 0, 0].map((i) => (
-					<Row key={i} />
-				))}
+				<Board />
 			</Container>
 		</>
 	);
