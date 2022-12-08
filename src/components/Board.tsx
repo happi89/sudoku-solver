@@ -44,7 +44,7 @@ const Board = () => {
 		const solvedBoard = modifyBoard(board);
 		if (solvedBoard === false) {
 			return showNotification({
-				message: 'Error Input Not Valid',
+				message: 'The following Sudoku puzzle is Invalid',
 				color: 'red',
 				icon: <IconX size={18} />,
 				title: 'Error',
