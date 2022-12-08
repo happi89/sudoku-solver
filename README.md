@@ -26,7 +26,8 @@ Users should be able to:
 
 ### Demonstration
 
-[Screencast from 12-08-2022 02:47:36 PM.webm](https://user-images.githubusercontent.com/101960666/206553105-f0a126b1-203a-406a-bfd3-f176d790dc65.webm)
+[Demonstration](https://user-images.githubusercontent.com/101960666/206553415-84a94508-0e06-44fe-92c9-9566ba016c10.webm)
+
 
 ### Links
 
