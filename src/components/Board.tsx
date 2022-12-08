@@ -82,7 +82,7 @@ const Board = () => {
 										}
 										value={cell}
 										key={colIndex}
-										min={1}
+										min={0}
 										max={9}
 										hideControls
 										error={cell > 9 || cell < 0}
