@@ -7,6 +7,7 @@ import {
 	Group,
 	NumberInput,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
 import { IconX } from '@tabler/icons';
 import { useState } from 'react';
@@ -36,6 +37,9 @@ const Board = () => {
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 	]);
 
+	const matches = useMediaQuery('(min-width: 767px)', true, {
+		getInitialValueInEffect: false,
+	});
 	const { classes } = useStyles();
 
 	console.log(board, 'board');
@@ -86,13 +90,27 @@ const Board = () => {
 										max={9}
 										hideControls
 										error={cell > 9 || cell < 0}
-										// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-										onChange={(val) => updateBoard(rowIndex, colIndex, val!)}
-										styles={{
-											input: {
-												width: 40,
-											},
-										}}></NumberInput>
+										onChange={(val) =>
+											// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+											updateBoard(rowIndex, colIndex, val!)
+										}
+										sx={
+											matches
+												? {
+														input: {
+															height: 48,
+															width: 48,
+															padding: 16,
+														},
+												  }
+												: {
+														input: {
+															height: 40,
+															width: 40,
+															padding: 12,
+														},
+												  }
+										}></NumberInput>
 								))}
 							</Box>
 						);
