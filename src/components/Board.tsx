@@ -24,9 +24,21 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const Board = () => {
-	const [board, setBoard] = useState<number[][]>(defaultBoard);
+	const [board, setBoard] = useState<number[][]>([
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
+	]);
 
 	const { classes } = useStyles();
+
+	console.log(board, 'board');
 
 	const solveBoard = (board: number[][]) => {
 		const solvedBoard = modifyBoard(board);
@@ -37,9 +49,8 @@ const Board = () => {
 				icon: <IconX size={18} />,
 				title: 'Error',
 			});
-		} else {
-			setBoard(solvedBoard);
 		}
+		setBoard(solvedBoard);
 	};
 
 	const updateBoard = (rowIndex: number, colIndex: number, value: number) => {
@@ -53,7 +64,7 @@ const Board = () => {
 		<Center>
 			<Flex direction='column'>
 				<Group spacing={0}>
-					{board.map((row, rowIndex) => {
+					{board?.map((row, rowIndex) => {
 						return (
 							<Box
 								key={rowIndex}
@@ -89,7 +100,22 @@ const Board = () => {
 				</Group>
 
 				<Flex>
-					<Button mt='lg' mr='xl' onClick={() => setBoard(defaultBoard)}>
+					<Button
+						mt='lg'
+						mr='xl'
+						onClick={() => {
+							setBoard([
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+								[0, 0, 0, 0, 0, 0, 0, 0, 0],
+							]);
+						}}>
 						Clear
 					</Button>
 					<Button mt='lg' onClick={() => solveBoard(board)}>
@@ -102,15 +128,3 @@ const Board = () => {
 };
 
 export default Board;
-
-const defaultBoard = [
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0],
-];
