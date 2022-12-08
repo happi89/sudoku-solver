@@ -6,7 +6,7 @@ This is my entry for my school hackathon to make a sudoku solver
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Demonstration](#Demonstration)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -24,17 +24,16 @@ Users should be able to:
 - Clear the board
 - Toggle Light and Dark mode
 
-### Screenshot
+### Demonstration
 
-![Screenshot from 2022-12-08 14-40-53](https://user-images.githubusercontent.com/101960666/206551859-ee4e2937-81ab-43ab-8b21-5a96302011ee.png)
-
-![Screenshot from 2022-12-08 14-40-44](https://user-images.githubusercontent.com/101960666/206551872-6ffc0888-7098-40d6-86e1-a72e2a473bf1.png)
+[Screencast from 12-08-2022 02:47:36 PM.webm](https://user-images.githubusercontent.com/101960666/206553105-f0a126b1-203a-406a-bfd3-f176d790dc65.webm)
 
 ### Links
 
 - Live Site URL: (https://hackathon-swart.vercel.app/)
 
 ## My process
+
 
 ### Built with
 
