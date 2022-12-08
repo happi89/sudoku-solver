@@ -1,8 +1,6 @@
 export const modifyBoard = (board) => {
 	const updatedBoard = board.map((row) =>
-		row.map((cell) =>
-			cell !== null && cell < 0 && cell > 9 ? (cell = null) : cell
-		)
+		row.map((cell) => (cell <= 0 || cell > 9 ? (cell = null) : cell))
 	);
 
 	const validInput = validBoard(updatedBoard);
