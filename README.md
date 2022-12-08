@@ -1,28 +1,53 @@
-# Create T3 App
+# School Hackathon - Sudoku Solver
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is my entry for my school hackathon to make a sudoku solver
 
-## What's next? How do I make an app with this?
+## Table of contents
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Overview
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### The challenge
 
-## Learn More
+Users should be able to:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Solver any valid Sudoku puzzle
+- Clear the board
+- Toggle Light and Dark mode
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Screenshot
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+![Screenshot from 2022-12-08 14-40-53](https://user-images.githubusercontent.com/101960666/206551859-ee4e2937-81ab-43ab-8b21-5a96302011ee.png)
 
-## How do I deploy this?
+![Screenshot from 2022-12-08 14-40-44](https://user-images.githubusercontent.com/101960666/206551872-6ffc0888-7098-40d6-86e1-a72e2a473bf1.png)
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### Links
+
+- Live Site URL: (https://hackathon-swart.vercel.app/)
+
+## My process
+
+### Built with
+
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Mantine UI](https://mantine.dev/pages/getting-started/) - For styles
+- [Tabler Icons](https://tabler-icons-react.vercel.app/) - For Icons
+
+### What I learned
+
+I learnt about Backtracking. Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally. Which is the perfect approch to make a sudoku solver.
