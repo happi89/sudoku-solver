@@ -26,7 +26,9 @@ Users should be able to:
 
 ### Demonstration
 
-[Demonstration](https://user-images.githubusercontent.com/101960666/206553415-84a94508-0e06-44fe-92c9-9566ba016c10.webm)
+![Invalid board in light mode](https://user-images.githubusercontent.com/101960666/206553847-13237d26-d706-4049-94fc-f35f57cb2f56.png)
+
+![Solved board in dark mode](https://user-images.githubusercontent.com/101960666/206553857-ec9cb37f-7914-421c-8355-1a5e65fcab52.png)
 
 
 ### Links
