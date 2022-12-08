@@ -6,7 +6,7 @@ This is my entry for my school hackathon to make a sudoku solver
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Demonstration](#Demonstration)
+  - [Screenshots](#Screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -24,7 +24,7 @@ Users should be able to:
 - Clear the board
 - Toggle Light and Dark mode
 
-### Demonstration
+### Screenshots
 
 ![Invalid board in light mode](https://user-images.githubusercontent.com/101960666/206553847-13237d26-d706-4049-94fc-f35f57cb2f56.png)
 
