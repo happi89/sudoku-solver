@@ -42,8 +42,6 @@ const Board = () => {
 	});
 	const { classes } = useStyles();
 
-	console.log(board, 'board');
-
 	const solveBoard = (board: number[][]) => {
 		const solvedBoard = modifyBoard(board);
 		if (solvedBoard === false) {
